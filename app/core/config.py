@@ -9,7 +9,7 @@ class Settings(BaseSettings):
 
     SECRET_KEY: str = 'aa977d4fb25c6930f5ea42d06571d97ab0b261e1ae710fabe753cfa9e8eb0e28'
     ALGORITHM: str = "HS256"
-    DATABASE_URI: str = "postgresql+asyncpg://simple_useer:olzhas@localhost:5432/simple_shop_db"
+    DATABASE_URL: str = "postgresql+asyncpg://simple_user:olzhas@localhost:5432/simple_shop_db"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
 
     class Config:

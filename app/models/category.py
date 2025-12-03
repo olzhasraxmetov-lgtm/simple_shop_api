@@ -4,7 +4,7 @@ from datetime import datetime
 from app.core.database import Base
 
 
-class Category(Base):
+class CategoryORM(Base):
     __tablename__ = "categories"
 
     id: Mapped[int] = mapped_column(primary_key=True)
