@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-from sqlalchemy import String, Integer, Text, DateTime
+from sqlalchemy import String, Integer, Text, DateTime, Boolean
 from datetime import datetime
 from app.core.database import Base
 
@@ -11,3 +11,4 @@ class CategoryORM(Base):
     name: Mapped[str] = mapped_column(String(20) ,unique=True)
     description: Mapped[str] = mapped_column(String(100))
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.now)
+    is_active: Mapped[bool] = mapped_column(Boolean, default=True)

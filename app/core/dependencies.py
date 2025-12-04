@@ -9,5 +9,5 @@ from app.core.config import settings
 
 
 async def get_db() -> AsyncGenerator[AsyncSession, None]:
-    with async_session_maker() as session:
+    async with async_session_maker() as session:
         yield session
