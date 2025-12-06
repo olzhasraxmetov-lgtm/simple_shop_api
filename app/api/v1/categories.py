@@ -27,3 +27,11 @@ async def update_category(
   service: CategoryService = Depends(get_category_service),
 ):
     return await service.update_category(category_id, category)
+
+@router.delete("/{category_id}", response_model=CategoryResponse)
+async def delete_category(
+        category_id: int,
+        service: CategoryService = Depends(get_category_service),
+):
+    return await service.delete_category(category_id)
+
