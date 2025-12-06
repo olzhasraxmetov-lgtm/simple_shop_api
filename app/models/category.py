@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-from sqlalchemy import String, Integer, Text, DateTime, Boolean
+from sqlalchemy import String, Integer, Text, DateTime, Boolean, ForeignKey
 from datetime import datetime
 from app.core.database import Base
 
@@ -12,3 +12,7 @@ class CategoryORM(Base):
     description: Mapped[str] = mapped_column(String(100))
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.now)
     is_active: Mapped[bool] = mapped_column(Boolean, default=True)
+    products: Mapped[list['ProductORM']] = relationship(
+        'ProductORM',
+        back_populates='category',
+    )
