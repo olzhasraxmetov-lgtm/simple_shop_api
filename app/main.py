@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from app.core.config import settings
 from app.api.v1 import categories
-
+from app.api.v1 import products
 
 app = FastAPI(
     title=settings.PROJECT_NAME,
@@ -10,6 +10,7 @@ app = FastAPI(
 )
 
 app.include_router(categories.router)
+app.include_router(products.router)
 
 @app.get('/')
 async def root():
