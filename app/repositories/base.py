@@ -32,5 +32,5 @@ class BaseRepository(Generic[ModelType]):
         for key, value in data.items():
             setattr(obj, key, value)
         await self.session.commit()
-        await self.session.refresh(data)
+        await self.session.refresh(obj)
         return obj

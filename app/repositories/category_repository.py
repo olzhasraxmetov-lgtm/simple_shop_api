@@ -15,3 +15,9 @@ class CategoryRepository(BaseRepository[CategoryORM]):
         stmt = stmt.order_by(CategoryORM.name)
         result = await self.session.scalars(stmt)
         return list(result.all())
+
+    async def get_by_id(self, category_id: int):
+        stmt  = select(CategoryORM).where(CategoryORM.id == category_id,
+                                          CategoryORM.is_active == True)
+        result = await self.session.scalars(stmt)
+        return result.first()
